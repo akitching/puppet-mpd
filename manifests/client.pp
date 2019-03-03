@@ -2,7 +2,7 @@ class mpd::client($volume = false,
                   $repeat = false,
                   $random = false,
                   $single = false,
-                  $consume = false,
+                  $playlist_consume = false,
                   $crossfade = false,
                   $force_play = false,
                   $force_update = false,
@@ -42,10 +42,10 @@ class mpd::client($volume = false,
     }
   }
 
-  if $consume {
+  if $playlist_consume {
     exec { "set-consume":
       command => "mpc consume",
-      unless => "mpc | grep 'consume: ${consume}'",
+      unless => "mpc | grep 'consume: ${playlist_consume}'",
       require => Class['mpd::client::install']
     }
   }

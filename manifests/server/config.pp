@@ -3,7 +3,7 @@ class mpd::server::config {
     ensure => present,
     owner => "root",
     group => "root",
-    mode => 0644,
+    mode => '0644',
     notify => Class["mpd::server::service"],
     require => Class["mpd::server::install"],
     content => template("${module_name}/mpd.conf.erb")
