@@ -76,7 +76,7 @@ class mpd::client($volume = false,
   if $remove_duplicates {
     file { "/usr/local/bin/mpd-remove-duplicates":
       ensure => file,
-      mode => 755,
+      mode => '0755',
       owner => 'root',
       group => 'root',
       source => "puppet:///modules/${module_name}/mpd-remove-duplicates.sh"
